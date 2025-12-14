@@ -3,51 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Universo É Você</title>
+<title>Meu Universo</title>
 
 <style>
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
   background: radial-gradient(circle at top, #1b2735, #090a0f);
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   color: white;
+  overflow: hidden;
   text-align: center;
 }
 
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://i.imgur.com/7b1hK0K.png");
+  animation: stars 60s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes stars {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 5000px; }
+}
+
 .container {
-  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 20px;
 }
 
-h1 {
-  color: #ffd6ff;
-  font-size: 2.2em;
+.title {
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff7ad9, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 122, 217, 0.4);
+  margin-bottom: 15px;
 }
 
-p {
-  color: #e0e0ff;
+.subtitle {
   font-size: 1.1em;
+  color: #e0e0ff;
 }
 
 button {
-  margin-top: 20px;
-  padding: 15px 30px;
+  margin-top: 25px;
+  padding: 15px 35px;
   border-radius: 30px;
   border: none;
   background: linear-gradient(135deg, #ff7ad9, #a855f7);
   color: white;
   font-size: 1em;
+  box-shadow: 0 0 20px rgba(255,122,217,0.6);
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 30px;
+  font-size: 1.2em;
+  min-height: 50px;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  animation: float 4s linear forwards;
+}
+
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>🌙 Meu Universo 🌙</h1>
-    <p>Entre bilhões de estrelas, foi você que brilhou pra mim ✨</p>
-    <button onclick="alert('O homem da sua vida te ama muito 💖')">
-      Clique aqui 💖
-    </button>
-  </div>
+
+<div class="stars"></div>
+
+<div class="container">
+  <h1 class="title">Meu Universo</h1>
+  <p class="subtitle">Entre bilhões de estrelas, foi você que brilhou pra mim ✨</p>
+
+  <button onclick="mostrarMensagem()">Clique aqui 💖</button>
+
+  <div class="message" id="message"></div>
+</div>
+
+<script>
+const mensagens = [
+  "Você é minha estrela favorita 🌟",
+  "O homem da sua vida te ama muito 💕",
+  "Meu mundo é mais bonito com você ❤️",
+  "Em qualquer universo, eu escolheria você 💫",
+  "Meu coração sempre vai ser seu 💖"
+];
+
+function mostrarMensagem() {
+  document.getElementById("message").innerText =
+    mensagens[Math.floor(Math.random() * mensagens.length)];
+  criarCoracao();
+}
+
+function criarCoracao() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}
+</script>
+
 </body>
 </html>
