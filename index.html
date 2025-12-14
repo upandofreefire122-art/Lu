@@ -9,14 +9,21 @@
 body {
   margin: 0;
   height: 100vh;
-  background: radial-gradient(circle at top, #1b2735, #090a0f);
   font-family: 'Segoe UI', sans-serif;
   color: white;
   overflow: hidden;
   text-align: center;
+
+  /* FOTO DE FUNDO */
+  background:
+    linear-gradient(
+      rgba(10, 10, 30, 0.75),
+      rgba(20, 5, 40, 0.85)
+    ),
+    url("minha-foto.jpg") center/cover no-repeat;
 }
 
-/* ESTRELAS EM CSS */
+/* ESTRELAS */
 .stars, .stars2, .stars3 {
   position: absolute;
   width: 2px;
@@ -64,13 +71,13 @@ body {
   background: linear-gradient(135deg, #ff7ad9, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 35px rgba(255, 122, 217, 0.5);
+  text-shadow: 0 0 35px rgba(255, 122, 217, 0.6);
   margin-bottom: 15px;
 }
 
 .subtitle {
   font-size: 1.1em;
-  color: #e0e0ff;
+  color: #f0eaff;
 }
 
 button {
