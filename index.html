@@ -16,18 +16,36 @@ body {
   text-align: center;
 }
 
-.stars {
+/* ESTRELAS EM CSS */
+.stars, .stars2, .stars3 {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("https://i.imgur.com/7b1hK0K.png");
-  animation: stars 60s linear infinite;
-  opacity: 0.6;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow:
+    20px 30px white, 100px 200px white, 300px 400px white,
+    500px 600px white, 700px 800px white, 900px 100px white,
+    1100px 300px white, 1300px 500px white, 1500px 700px white;
+  animation: animStars 60s linear infinite;
 }
 
-@keyframes stars {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
+.stars2 {
+  box-shadow:
+    50px 150px white, 250px 350px white, 450px 550px white,
+    650px 750px white, 850px 950px white, 1050px 1150px white;
+  animation-duration: 90s;
+}
+
+.stars3 {
+  box-shadow:
+    80px 280px white, 280px 480px white, 480px 680px white,
+    680px 880px white, 880px 1080px white;
+  animation-duration: 120s;
+}
+
+@keyframes animStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
 }
 
 .container {
@@ -40,13 +58,13 @@ body {
 
 .title {
   font-size: 3em;
-  font-weight: 800;
-  letter-spacing: 3px;
+  font-weight: 900;
+  letter-spacing: 4px;
   text-transform: uppercase;
   background: linear-gradient(135deg, #ff7ad9, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 122, 217, 0.4);
+  text-shadow: 0 0 35px rgba(255, 122, 217, 0.5);
   margin-bottom: 15px;
 }
 
@@ -63,7 +81,7 @@ button {
   background: linear-gradient(135deg, #ff7ad9, #a855f7);
   color: white;
   font-size: 1em;
-  box-shadow: 0 0 20px rgba(255,122,217,0.6);
+  box-shadow: 0 0 25px rgba(255,122,217,0.6);
   cursor: pointer;
 }
 
@@ -90,6 +108,8 @@ button {
 <body>
 
 <div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
 
 <div class="container">
   <h1 class="title">Meu Universo</h1>
@@ -103,8 +123,8 @@ button {
 <script>
 const mensagens = [
   "Você é minha estrela favorita 🌟",
-  "O homem da sua vida te ama muito 💕",
   "Meu mundo é mais bonito com você ❤️",
+  "O homem da sua vida te ama muito 💕",
   "Em qualquer universo, eu escolheria você 💫",
   "Meu coração sempre vai ser seu 💖"
 ];
